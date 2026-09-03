@@ -20,7 +20,7 @@ assistance, please email support@fiuu.com.
 Installation
 -----
 
-Copy the `classipress_molpay_normal/` folder into your ClassiPress installation's plugins directory and activate it from the admin panel. Detailed setup guidance will be migrated here from the original repository's wiki shortly.
+Copy the `classipress1.0_normal/` folder into your ClassiPress installation's plugins directory and activate it from the admin panel. Detailed setup guidance will be migrated here from the original repository's wiki shortly.
 
 Changelog
 ------------
