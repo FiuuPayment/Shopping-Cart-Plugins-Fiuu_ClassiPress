@@ -20,11 +20,12 @@ assistance, please email support@fiuu.com.
 Installation
 -----
 
-Copy the `classipress_molpay_normal/` folder into your ClassiPress installation's plugins directory and activate it from the admin panel. Detailed setup guidance will be migrated here from the original repository's wiki shortly.
+See the [Installation for ClassiPress Plugins](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_ClassiPress/wiki/Installation-for-ClassiPress-Plugins) wiki page.
 
 Changelog
 ------------
 
+v1.1 - Callback URL correction only (no other code changes); this is the version currently in `classipress_molpay_normal/` on this branch. The plugin's own header was never bumped past `1.0`, so this version number only ever existed as a distribution label, not in the code itself.
 v1.0 - Jun 5, 2015 - Release MOLPay Normal Integration Plugin for WP ClassiPress.
 
 Contribution
