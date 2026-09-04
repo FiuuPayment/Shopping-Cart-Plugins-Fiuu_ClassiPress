@@ -10,6 +10,11 @@ Introduction
 
 This is the Fiuu MOLPay Normal integration plugin for ClassiPress. It enables secure payment processing for ClassiPress-based online stores via Fiuu's payment gateway.
 
+Version Branch
+-----------------
+
+- [ClassiPress 1.0 Normal](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_ClassiPress/tree/classipress1.0_normal)
+
 Notes / Prerequisite
 -----
 
@@ -20,7 +25,7 @@ assistance, please email support@fiuu.com.
 Installation
 -----
 
-Copy the `classipress1.0_normal/` folder into your ClassiPress installation's plugins directory and activate it from the admin panel. Detailed setup guidance will be migrated here from the original repository's wiki shortly.
+See the [Installation for ClassiPress Plugins](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_ClassiPress/wiki/Installation-for-ClassiPress-Plugins) wiki page.
 
 Changelog
 ------------
