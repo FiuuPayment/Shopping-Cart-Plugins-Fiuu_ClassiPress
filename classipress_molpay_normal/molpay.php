@@ -1,10 +1,10 @@
 <?php
 /*
-	Plugin Name: Classipress MOLPay
-	Plugin URI: http://www.github.com/MOLPay
-	Description: MOLPay | The leading payment gateway in South East Asia Grow your business with MOLPay payment solutions & free features: Physical Payment at 7-Eleven, Seamless Checkout, Tokenization, Loyalty Program and more.
- 	Author: MOLPay Tech Team
-	Author URI: http://www.molpay.com/
+	Plugin Name: Classipress Fiuu Payment Gateway
+	Plugin URI: https://fiuu.com/
+	Description: Fiuu | The leading payment gateway in South East Asia Grow your business with Fiuu payment solutions & free features: Physical Payment at 7-Eleven, Seamless Checkout, Tokenization, Loyalty Program and more.
+ 	Author: Fiuu Technical Team
+	Author URI: https://fiuu.com/
 	Version: 1.0
 */
 
@@ -36,16 +36,16 @@ function molpay_add_gateway_values(){
 	global $app_abbr, $action_gateway_values;
 
 	$mol_gateway_values = array(
-		array('type' => 'tab', 'tabname' => __('MOLPay', MOL_TD),
+		array('type' => 'tab', 'tabname' => __('Fiuu', MOL_TD),
 			'id' => ''),
 
-			array('name' => __('<b>MOLPay Online Payment</b>', MOL_TD),
+			array('name' => __('<b>Fiuu Payment Gateway</b>', MOL_TD),
 				'type' => 'title',
 				'id' => ''),
 
-			array('name' => __('Enable MOLPay', MOL_TD),
-				'desc' => sprintf(__("<i>You must have a <a target='_new' href='%s'>MOLPay</a> account setup before using this feature.</i>", MOL_TD), 'http://www.molpay.com/v2/contact/merchant-enquiry'),
-				'tip' => __('Set this to yes if you want to enable MOLPay as a payment option on your site.'),
+			array('name' => __('Enable Fiuu', MOL_TD),
+				'desc' => sprintf(__("<i>You must have a <a target='_new' href='%s'>Fiuu</a> account setup before using this feature.</i>", MOL_TD), 'https://fiuu.com/'),
+				'tip' => __('Set this to yes if you want to enable Fiuu as a payment option on your site.'),
 				'id' => $app_abbr.'_enable_molpay',
 				'css' => 'width:100px;',
 				'std' => '',
@@ -55,7 +55,7 @@ function molpay_add_gateway_values(){
 								'no' => __('No', MOL_TD))),
 
 			array('name' => __('Merchant ID', MOL_TD),
-				'desc' => sprintf(__("<i>Please enter your MOLPay Merchant ID. You can to get this information in: <a target='_new' href='%s'>MOLPay Account</i>", MOL_TD), 'https://www.onlinepayment.com.my/MOLPay/'),
+				'desc' => sprintf(__("<i>Please enter your Fiuu Merchant ID. You can to get this information in: <a target='_new' href='%s'>Fiuu Account</i>", MOL_TD), 'https://portal.fiuu.com/'),
 				'tip'  => '',
 				'id' => $app_abbr.'_molpay_merchant_id',
 				'css' => 'min-width:250px;',
@@ -66,7 +66,7 @@ function molpay_add_gateway_values(){
 				'vis' => ''),
 
 			array('name' => __('Verify Key', MOL_TD),
-				'desc' => sprintf(__("<i>Please enter your MOLPay Verify Key. You can to get this information in: <a target='_new' href='%s'>MOLPay Account</i>", MOL_TD), 'https://www.onlinepayment.com.my/MOLPay/'),
+				'desc' => sprintf(__("<i>Please enter your Fiuu Verify Key. You can to get this information in: <a target='_new' href='%s'>Fiuu Account</i>", MOL_TD), 'https://portal.fiuu.com/'),
 				'tip' => '',
 				'id' => $app_abbr.'_molpay_verify_key',
 				'css' => 'min-width:250px;',
@@ -134,7 +134,7 @@ function gateway_molpay($order_vals){
 
 	$vcode = md5($amount.$merchant_id.$orderid.$verify_key);
 
-	$molpay_url = "https://www.onlinepayment.com.my/MOLPay/pay/".$merchant_id.'/';
+	$molpay_url = "https://pay.fiuu.com/MOLPay/pay/".$merchant_id.'/';
 
 	$return_url = add_query_arg(array('oid' => $order_vals['oid'], 'molpay' => $order_vals['oid'].'_'.$userdata->ID), CP_DASHBOARD_URL);
 	$return_url = wp_nonce_url($return_url,$order_vals['oid']);
@@ -202,7 +202,7 @@ function dashboard_button_molpay($the_id,$type=''){
 	$verify_key = get_option($app_abbr.'_molpay_verify_key');
 	$vcode = md5($amount.$merchant_id.$orderid.$verify_key);
 
-	$molpay_url = "https://www.onlinepayment.com.my/MOLPay/pay/".$merchant_id.'/';
+	$molpay_url = "https://pay.fiuu.com/MOLPay/pay/".$merchant_id.'/';
 
 	$return_url = add_query_arg(array('oid' => $orderid, 'molpay' => $orderid.'_'.$userdata->ID), CP_DASHBOARD_URL);
 	$return_url = wp_nonce_url($return_url,$orderid);
@@ -222,7 +222,7 @@ function dashboard_button_molpay($the_id,$type=''){
 
 		<center>
 			<button style="cursor:pointer;">
-				<img src="<?php echo plugins_url('/images/molpay.png', __FILE__); ?>" style='width:50px;height:15px;' />
+				<img src="<?php echo plugins_url('/images/logo_Fiuu.png', __FILE__); ?>" style='width:50px;height:15px;' />
 			</button>
 		<!-- <input type="submit" class="btn_orange" value="<?php _e('Continue &rsaquo;&rsaquo;', MOL_TD); ?>" /> -->
 		</center>
@@ -268,7 +268,7 @@ function molpay_to_merchant(){
 		$postData[] = $k."=".$v;
 	}
 	$postdata = implode("&",$postData);
-	$url = "https://pay.merchant.razer.com/RMS/API/chkstat/returnipn.php";
+	$url = "https://pay.fiuu.com/MOLPay/API/chkstat/returnipn.php";
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
